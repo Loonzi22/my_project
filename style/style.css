@@ -1,0 +1,165 @@
+body {
+    background-color: #1f1a17;
+    color: #f1f1f1;
+    margin: 0;
+}
+
+/* Заголовки */
+h1, h2 {
+    text-align: center !important;
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container h1, .container h2 {
+    width: 100%;
+}
+
+/* Навигация */
+nav.navbar {
+    background-color: #121212;
+}
+
+nav.navbar .navbar-brand,
+nav.navbar .nav-link {
+    color: #f1f1f1 !important;
+}
+
+nav .btn-primary {
+    background-color: #cc8100;
+    border-color: #cc8100;
+    color: #fff;
+}
+
+/* Хедер */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-image: url('../images/main_photo.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    padding: 0 1rem;
+    max-width: 90%;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Основные секции */
+main, section {
+    max-width: 95% !important;
+    padding: 2rem;
+    background-color: #50321eb3; /* мягкий полупрозрачный фон */
+    border-radius: 40px;
+    margin-bottom: 2rem;
+}
+.article-content {
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.03); /* лёгкий фон, если хочешь */
+    border-radius: 20px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.article-content p {
+    margin-bottom: 1.2rem;
+}
+
+
+/* Ссылки */
+a {
+    color: #f9a825;
+}
+
+a:hover {
+    color: #ffd54f;
+}
+
+/* Подвал */
+footer {
+    margin-top: 3rem;
+    padding: 1rem 0;
+    background-color: #121212;
+    text-align: center;
+    color: #777;
+}
+
+/* Картинки */
+.rounded-photo {
+    border-radius: 30px;
+    display: block;
+}
+
+/* Карточки-инструменты */
+.tools-overview .card {
+    background-color: #4a2a15b3;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #0000004d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tools-overview .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px #00000080;
+}
+
+.tools-overview .btn-primary {
+
+    background-color: #cc8100;
+    border-color: #cc8100;
+    border-radius: 14px;    
+    margin-top: 1rem;
+}
+
+.hero-letenky {
+    background-image: url('../images/aplikace_letadlo.jpg') !important;
+}
+
+.hero-ubytovani {
+    background-image: url('../images/aplikace_ubytovani.jpg') !important;
+}
+
+.hero-trasa {
+    background-image: url('../images/aplikace_trasa.png') !important;
+}
+
+.centered-paragraph {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flights-img {
+    max-width: 65%;
+    height: auto;
+}
+
+.logo-rounded {
+    border-radius: 30px;
+    max-width: 250px;
+  }
