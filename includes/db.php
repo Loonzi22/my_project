@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "blog_db"; // или название твоей БД
+$database = "blog_db";
 
 $conn = new mysqli($host, $user, $password, $database);
 
