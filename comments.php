@@ -76,7 +76,7 @@ $comments = $conn->query("
                 <button type="submit" class="btn btn-success">Odeslat</button>
             </form>
 
-            <h4 class="mt-4">Všechny komentáře</h4>
+            <h4 class="mt-4">Vaše tipy</h4>
             <ul class="list-group">
                 <?php while ($row = $comments->fetch_assoc()): ?>
                     <li class="list-group-item">
