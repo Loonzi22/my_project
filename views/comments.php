@@ -38,14 +38,21 @@ $message = $message ?? "";
 
     <h4>Vaše tipy</h4>
     <ul class="list-group">
-        <?php while ($row = $comments->fetch_assoc()): ?>
-            <li class="list-group-item">
-                <strong><?= htmlspecialchars($row["username"]) ?>:</strong>
-                <p><?= htmlspecialchars($row["comment"]) ?></p>
-                <small class="text-muted"><?= $row["created_at"] ?></small>
-            </li>
-        <?php endwhile; ?>
-    </ul>
+    <?php while ($row = $comments->fetch_assoc()): ?>
+        <li class="list-group-item">
+            <strong><?= htmlspecialchars($row["username"]) ?>:</strong>
+            <p><?= htmlspecialchars($row["comment"]) ?></p>
+            <small class="text-muted"><?= $row["created_at"] ?></small>
+
+            <?php if ($_SESSION['user_id'] == $row['user_id']): ?>
+                <div class="mt-2">
+                    <a href="EditCommentController.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning">Upravit</a>
+                    <a href="DeleteCommentController.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tento komentář?')">Smazat</a>
+                </div>
+            <?php endif; ?>
+        </li>
+    <?php endwhile; ?>
+</ul>
 </div>
 
 <footer class="bg-dark text-white text-center py-3 mt-5">
