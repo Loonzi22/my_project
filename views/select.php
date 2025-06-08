@@ -1,5 +1,10 @@
+<?php
+$redirect = $_GET['redirect'] ?? '/wa/my_project/controllers/commentsController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <title>Přihlášení nebo Registrace</title>
@@ -18,7 +23,7 @@
             background-color: #50321eb3;
             padding: 2rem 2.5rem;
             border-radius: 30px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 500px;
             text-align: center;
@@ -55,13 +60,16 @@
         }
     </style>
 </head>
+
 <body>
     <div class="form-box">
         <h2>Vítejte!</h2>
         <p>Jste nový uživatel nebo už máte účet?</p>
 
-        <a href="register.php?redirect=<?= urlencode($_GET['redirect'] ?? '/') ?>" class="btn btn-success m-2">Registrovat se</a>
-        <a href="login.php?redirect=<?= urlencode($_GET['redirect'] ?? '/') ?>" class="btn btn-primary m-2">Přihlásit se</a>
+        <a href="../controllers/AuthController.php?action=register" class="btn btn-success m-2">Registrovat se</a>
+        <a href="../controllers/AuthController.php?action=login" class="btn btn-primary m-2">Přihlásit se</a>
+
     </div>
 </body>
+
 </html>

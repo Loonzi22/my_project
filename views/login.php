@@ -1,42 +1,3 @@
-<?php
-session_start();
-require '../includes/db.php';
-
-$message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST["email"]);
-    $password = $_POST["password"];
-
-    $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows == 1) {
-        $stmt->bind_result($id, $username, $hashed_password, $role);
-        $stmt->fetch();
-
-        if (password_verify($password, $hashed_password)) {
-            $_SESSION["user_id"] = $id;
-            $_SESSION["username"] = $username;
-            $_SESSION["role"] = $role;
-
-            // Переход на исходную страницу, если указана
-            $redirect = $_GET['redirect'] ?? '../index.html';
-            header("Location: ../comments.php");
-            exit;
-        } else {
-            $message = "Nesprávné heslo.";
-        }
-    } else {
-        $message = "Uživatel s tímto emailem nebyl nalezen.";
-    }
-
-    $stmt->close();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -87,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="form-box">
         <h2>Přihlášení</h2>
-        <?php if ($message): ?>
+        <?php if (isset($message) && $message): ?>
             <div class="alert alert-danger"><?= htmlspecialchars($message) ?></div>
         <?php endif; ?>
 
